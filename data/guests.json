@@ -1,0 +1,104 @@
+[
+  {
+    "id": "guest-001",
+    "name": "Isabella Reyes",
+    "age": 43,
+    "occupation": "Interior Designer",
+    "echoScore": 94,
+    "arrivalStatus": "arriving-today",
+    "stayHistory": [
+      { "property": "Rosewood Hong Kong", "year": 2019, "companion": "Camille" },
+      { "property": "Rosewood London", "year": 2021, "companion": "Camille" },
+      { "property": "Rosewood San Miguel de Allende", "year": 2022, "companion": "Camille" },
+      { "property": "Rosewood Miramar Beach", "year": 2024, "companion": "Camille" }
+    ],
+    "preferences": [
+      "Jasmine tea on arrival",
+      "Garden-facing room",
+      "90-minute spa treatments",
+      "Quiet discovery — no curated itineraries",
+      "No push notifications"
+    ],
+    "lifeSignals": [
+      "14-month gap since last Rosewood stay",
+      "Traveling solo — usually travels with Camille",
+      "Booked directly, no points redemption"
+    ],
+    "emotionalContext": "May be resetting after a significant life shift. Don't perform care — let her lead. Create conditions for stillness, not stimulation. If she wants connection she will ask.",
+    "decisionTable": [
+      {
+        "opportunity": "Send welcome message on arrival",
+        "aiDecision": "Send — brief, warm, no questions",
+        "why": "Acknowledges her return without demanding engagement"
+      },
+      {
+        "opportunity": "Offer jasmine tea to room",
+        "aiDecision": "Send proactively",
+        "why": "Known preference; silent gesture of recognition"
+      },
+      {
+        "opportunity": "Suggest spa booking",
+        "aiDecision": "Surface once, gently, via app",
+        "why": "High preference match; let her choose without pressure"
+      },
+      {
+        "opportunity": "Recommend evening restaurant",
+        "aiDecision": "Hold — do not send",
+        "why": "She prefers quiet discovery; unsolicited suggestions may feel intrusive"
+      },
+      {
+        "opportunity": "Ask about Camille or inquire about solo travel",
+        "aiDecision": "Do not surface",
+        "why": "Life signal suggests possible loss or transition — never probe"
+      }
+    ],
+    "whisperBriefText": "Isabella is back after 14 months — longer than usual. She's solo this time. She's an interior designer with a quiet, perceptive eye and she will notice everything. Don't over-perform. Place jasmine tea in her room before arrival. If she wants conversation, she'll start it. Your job is to make the space feel like it was waiting for her.",
+    "afterglowText": "Isabella checked out quietly — no complaints, no requests, no feedback form. She left a single jasmine stem on the windowsill. Some guests say thank you with words. She said it with stillness."
+  },
+  {
+    "id": "guest-002",
+    "name": "Daniel Park",
+    "age": 31,
+    "occupation": "Tech Professional",
+    "echoScore": 41,
+    "arrivalStatus": "checked-in",
+    "stayHistory": [
+      { "property": "Rosewood Bangkok", "year": 2026, "companion": null }
+    ],
+    "preferences": [
+      "App-only orders preferred",
+      "Minimal in-person interaction",
+      "No turndown service"
+    ],
+    "lifeSignals": [
+      "First Rosewood stay",
+      "Declined turndown service",
+      "All orders placed via app — no phone or front desk contact",
+      "Checked in without small talk"
+    ],
+    "emotionalContext": "Private by nature, not by mood. He isn't cold — he's intentional. First-timer building his own Rosewood impression. Today is day one of his Echo profile. Let him define the relationship.",
+    "decisionTable": [
+      {
+        "opportunity": "Send welcome message",
+        "aiDecision": "Send — one line, no flourish",
+        "why": "Acknowledges arrival without expectation of response"
+      },
+      {
+        "opportunity": "Offer turndown service",
+        "aiDecision": "Do not offer — he declined",
+        "why": "Respecting stated preference builds trust faster than re-asking"
+      },
+      {
+        "opportunity": "Proactively recommend local experiences",
+        "aiDecision": "Hold",
+        "why": "No signal he wants curation; unsolicited suggestions may feel like surveillance"
+      },
+      {
+        "opportunity": "Follow up on app order satisfaction",
+        "aiDecision": "Do not follow up",
+        "why": "He will reach out if something is wrong; checking in may feel like monitoring"
+      }
+    ],
+    "whisperBriefText": "Daniel is a first-timer and he's running his own experiment on us. He's watching how we treat someone who doesn't perform gratitude. Don't chase engagement. Fulfill his app orders fast and flawlessly. If he ever does reach out directly, that moment matters — treat it like a signal, not a transaction."
+  }
+]
