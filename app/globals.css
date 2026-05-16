@@ -1,3 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, serif;
+
+  --color-background: #FAF8F5;
+  --color-foreground: #1a1a1a;
+  --color-muted: #8a8680;
+  --color-muted-foreground: #6a6660;
+
+  --color-card: #FFFFFF;
+  --color-card-warm: #FFFDF8;
+  --color-card-foreground: #1a1a1a;
+
+  --color-gold: #B8963E;
+  --color-gold-light: #C9A84F;
+  --color-gold-dark: #7A5C1E;
+  --color-gold-bg: #EFE3C8;
+  --color-amber: #A8926D;
+
+  --color-border: #e8e4dc;
+  --color-border-gold: #B8963E;
+
+  --color-badge-grey: #F0EDEA;
+  --color-badge-grey-text: #6a6660;
+}
