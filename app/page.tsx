@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="px-8 pt-16 pb-12 text-center">
-        <h1 className="font-serif text-5xl font-light tracking-tight text-foreground">
+        <h1 className="font-serif text-[52px] font-light tracking-[0.08em] text-[#1C1917]">
           Écho
         </h1>
         <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-muted">
