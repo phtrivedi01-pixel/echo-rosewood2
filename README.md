@@ -51,26 +51,6 @@ Tag with Dining · Spa · Family · Room · Activity · Emotional. Submit, and �
 - **next/font** — DM Sans (body) + Cormorant Garamond (display serif)
 - Deployed on **Vercel**
 
-## Running locally
-
-```bash
-npm install
-cp .env.local.example .env.local  # then fill in your keys
-npm run dev
-```
-
-Open [localhost:3000](http://localhost:3000).
-
-### Required environment variables
-
-```
-ANTHROPIC_API_KEY=sk-ant-api03-...
-ELEVENLABS_API_KEY=sk_...        # only needed to regenerate audio
-```
-
-Get an Anthropic key at [console.anthropic.com](https://console.anthropic.com/).
-Audio files in `public/audio/` are already generated and committed — you only need `ELEVENLABS_API_KEY` if you want to regenerate them via `scripts/generate-audio.ts`.
-
 ## Project layout
 
 ```
