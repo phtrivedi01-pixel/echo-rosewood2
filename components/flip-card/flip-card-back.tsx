@@ -7,8 +7,8 @@ const properties = [
     detail: "Stay 1 \u00B7 3 nights",
     quote: "Where it began.",
     active: false,
-    x: 82,
-    y: 55,
+    x: 400,
+    y: 85,
   },
   {
     date: "SEPT 23",
@@ -16,8 +16,8 @@ const properties = [
     detail: "Stay 2 \u00B7 2 nights",
     quote: "Watched the Pacific.",
     active: false,
-    x: 18,
-    y: 50,
+    x: 80,
+    y: 120,
   },
   {
     date: "FEB 24",
@@ -25,8 +25,8 @@ const properties = [
     detail: "Stay 3 \u00B7 2 nights",
     quote: "The thermal pools.",
     active: false,
-    x: 14,
-    y: 42,
+    x: 95,
+    y: 100,
   },
   {
     date: "MAY 26",
@@ -34,13 +34,13 @@ const properties = [
     detail: "Stay 4 \u00B7 Current",
     quote: "The ceramics. The creek.",
     active: true,
-    x: 16,
-    y: 44,
+    x: 110,
+    y: 110,
   },
 ];
 
 function JourneyMap() {
-  const stops = properties.map((p) => ({ x: (p.x / 100) * 504, y: (p.y / 100) * 180 }));
+  const stops = properties.map((p) => ({ x: p.x, y: p.y }));
 
   const pathD = stops
     .map((s, i) => `${i === 0 ? "M" : "L"} ${s.x} ${s.y}`)
@@ -124,6 +124,29 @@ function JourneyMap() {
       {properties.map((p, i) => {
         const cx = stops[i].x;
         const cy = stops[i].y;
+        const labelName = p.name.replace("Rosewood ", "");
+
+        // Offset labels for the tightly-clustered California properties
+        let labelX = cx;
+        let labelY = cy + 14;
+        let labelAnchor: "middle" | "start" | "end" = "middle";
+
+        if (p.name === "Rosewood Miramar Beach") {
+          labelX = cx - 6;
+          labelY = cy + 14;
+          labelAnchor = "end";
+        } else if (p.name === "Rosewood Calistoga") {
+          labelX = cx - 6;
+          labelY = cy - 8;
+          labelAnchor = "end";
+        } else if (p.name === "Rosewood Sand Hill") {
+          labelX = cx + 6;
+          labelY = cy + 4;
+          labelAnchor = "start";
+        } else if (p.name === "Rosewood Hong Kong") {
+          labelY = cy + 14;
+        }
+
         return (
           <g key={p.name}>
             {p.active ? (
@@ -136,19 +159,19 @@ function JourneyMap() {
               <circle cx={cx} cy={cy} r="3" fill="#1C1917" />
             )}
             <text
-              x={cx}
-              y={cy + 14}
-              textAnchor="middle"
+              x={labelX}
+              y={labelY}
+              textAnchor={labelAnchor}
               className="text-[7px] fill-muted"
               fontFamily="var(--font-sans)"
             >
-              {p.name.replace("Rosewood ", "")}
+              {labelName}
             </text>
             {p.active && (
               <text
-                x={cx}
-                y={cy - 12}
-                textAnchor="middle"
+                x={cx + 6}
+                y={cy - 8}
+                textAnchor="start"
                 className="text-[7px] fill-gold"
                 fontFamily="var(--font-sans)"
               >
