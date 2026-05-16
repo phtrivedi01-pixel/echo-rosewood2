@@ -57,17 +57,32 @@ function JourneyMap() {
       {/* Cream background */}
       <rect width="504" height="180" fill="#F5EDD6" rx="2" />
 
-      {/* Soft continent silhouettes */}
-      {/* North America — organic blob, left third */}
-      <path
-        d="M30 55 Q50 25 95 20 Q140 18 160 35 Q175 50 165 75 Q155 95 135 115 Q115 135 90 145 Q60 150 40 130 Q20 110 25 85 Q28 68 30 55Z"
-        fill="#EDE0C4"
-      />
-      {/* Asia — organic blob, right third */}
-      <path
-        d="M340 30 Q375 18 420 22 Q465 28 480 50 Q488 68 475 88 Q458 108 430 110 Q400 112 375 100 Q350 88 340 65 Q335 45 340 30Z"
-        fill="#EDE0C4"
-      />
+      {/* Subtle latitude grid lines */}
+      {[36, 72, 108, 144].map((y) => (
+        <line
+          key={y}
+          x1="0"
+          y1={y}
+          x2="504"
+          y2={y}
+          stroke="#E0D4B8"
+          strokeWidth="0.5"
+          strokeDasharray="2 6"
+        />
+      ))}
+      {/* Subtle longitude grid lines */}
+      {[84, 168, 252, 336, 420].map((x) => (
+        <line
+          key={x}
+          x1={x}
+          y1="0"
+          x2={x}
+          y2="180"
+          stroke="#E0D4B8"
+          strokeWidth="0.5"
+          strokeDasharray="2 6"
+        />
+      ))}
 
       {/* Journey line — bezier arc across the ocean like a flight path */}
       {/* Hong Kong → Miramar Beach (first leg, arriving in California) */}
