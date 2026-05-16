@@ -10,7 +10,7 @@ const statusLabel: Record<string, string> = {
 
 const statusStyle: Record<string, string> = {
   "arriving-today": "bg-[#EFE3C8] text-[#7A5C1E]",
-  "checked-in": "bg-[#F0EDEA] text-[#6a6660]",
+  "checked-in": "bg-[#F0EDEA] text-[#3e3c3a]",
 };
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
         <h1 className="font-serif text-[56px] font-light tracking-[0.06em] text-[#1C1917]">
           Écho
         </h1>
-        <p className="mt-2 text-[11px] uppercase tracking-[0.28em] text-[#8a8680]">
+        <p className="mt-2 text-[11px] uppercase tracking-[0.28em] text-[#5a5450]">
           Rosewood Sand Hill — May 16, 2026
         </p>
         <div className="mt-10 h-px w-full max-w-5xl mx-auto bg-[#B8963E] opacity-40" />
@@ -32,7 +32,7 @@ export default function Home() {
 
       {/* Subheading */}
       <div className="px-8 mb-8 text-center">
-        <p className="text-xs uppercase tracking-[0.22em] text-[#8a8680]">
+        <p className="text-xs uppercase tracking-[0.22em] text-[#5a5450]">
           Today's Arrivals & Active Guests
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="px-8 py-8">
         <div className="max-w-5xl mx-auto border-t border-[#B8963E] border-opacity-30 pt-6">
-          <p className="text-center text-[10px] uppercase tracking-[0.2em] text-[#8a8680]">
+          <p className="text-center text-[10px] uppercase tracking-[0.2em] text-[#5a5450]">
             Écho · Rosewood Sand Hill · Staff Intelligence Platform · 2026
           </p>
         </div>
@@ -94,7 +94,7 @@ function GuestCard({
         <span
           className={cn(
             "px-3 py-1 text-[10px] uppercase tracking-widest font-medium",
-            statusStyle[guest.arrivalStatus] ?? "bg-[#F0EDEA] text-[#6a6660]"
+            statusStyle[guest.arrivalStatus] ?? "bg-[#F0EDEA] text-[#3e3c3a]"
           )}
         >
           {statusLabel[guest.arrivalStatus] ?? guest.arrivalStatus}
@@ -107,14 +107,14 @@ function GuestCard({
           <h2 className="font-serif text-2xl font-light text-[#1C1917]">
             {guest.name}
           </h2>
-          <p className="text-sm text-[#8a8680]">{guest.occupation}</p>
-          <p className="text-xs text-[#6a6660] mt-2">
+          <p className="text-sm text-[#5a5450]">{guest.occupation}</p>
+          <p className="text-xs text-[#3e3c3a] mt-2">
             {guest.stayHistory.length === 1
               ? "First Rosewood Stay"
               : `Stay ${guest.stayHistory.length}`}
           </p>
           {note && (
-            <p className="text-sm italic text-[#8a8680] mt-3 max-w-[200px]">
+            <p className="text-sm italic text-[#5a5450] mt-3 max-w-[200px]">
               {note}
             </p>
           )}
@@ -125,7 +125,7 @@ function GuestCard({
             score={guest.echoScore}
             variant={isHighScore ? "gold" : "amber"}
           />
-          <span className="text-[10px] uppercase tracking-widest text-[#8a8680]">
+          <span className="text-[10px] uppercase tracking-widest text-[#5a5450]">
             Echo Score
           </span>
         </div>
