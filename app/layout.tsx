@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${cormorantGaramond.variable} bg-background`}>
-      <body className="font-sans antialiased text-foreground">
+      <body className="font-sans antialiased text-foreground" suppressHydrationWarning>
         {children}
       </body>
     </html>

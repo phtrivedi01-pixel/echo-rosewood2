@@ -29,31 +29,36 @@
       {
         "opportunity": "Send welcome message on arrival",
         "aiDecision": "Send — brief, warm, no questions",
+        "category": "act-invisibly",
         "why": "Acknowledges her return without demanding engagement"
       },
       {
         "opportunity": "Offer jasmine tea to room",
         "aiDecision": "Send proactively",
+        "category": "act-invisibly",
         "why": "Known preference; silent gesture of recognition"
       },
       {
         "opportunity": "Suggest spa booking",
-        "aiDecision": "Surface once, gently, via app",
+        "aiDecision": "Offer Gently",
+        "category": "offer-gently",
         "why": "High preference match; let her choose without pressure"
       },
       {
         "opportunity": "Recommend evening restaurant",
-        "aiDecision": "Hold — do not send",
+        "aiDecision": "Stay Silent",
+        "category": "stay-silent",
         "why": "She prefers quiet discovery; unsolicited suggestions may feel intrusive"
       },
       {
         "opportunity": "Ask about Camille or inquire about solo travel",
-        "aiDecision": "Do not surface",
+        "aiDecision": "Stay Silent",
+        "category": "stay-silent",
         "why": "Life signal suggests possible loss or transition — never probe"
       }
     ],
     "whisperBriefText": "Isabella is back after 14 months — longer than usual. She's solo this time. She's an interior designer with a quiet, perceptive eye and she will notice everything. Don't over-perform. Place jasmine tea in her room before arrival. If she wants conversation, she'll start it. Your job is to make the space feel like it was waiting for her.",
-    "afterglowText": "Isabella checked out quietly — no complaints, no requests, no feedback form. She left a single jasmine stem on the windowsill. Some guests say thank you with words. She said it with stillness."
+    "afterglowText": "Dear Isabella. During your stay, you found the creek trail twice. You ordered jasmine tea both mornings, and you spent four quiet hours in the ceramics studio on Saturday afternoon. We noticed. We thought you might want to know — Mara Solis, the artist in residence here last weekend, has a show opening at Rosewood London in September. We thought of you immediately. Until next time. Rosewood Sand Hill."
   },
   {
     "id": "guest-002",
@@ -80,22 +85,26 @@
     "decisionTable": [
       {
         "opportunity": "Send welcome message",
-        "aiDecision": "Send — one line, no flourish",
+        "aiDecision": "Act Invisibly",
+        "category": "act-invisibly",
         "why": "Acknowledges arrival without expectation of response"
       },
       {
         "opportunity": "Offer turndown service",
-        "aiDecision": "Do not offer — he declined",
+        "aiDecision": "Stay Silent",
+        "category": "stay-silent",
         "why": "Respecting stated preference builds trust faster than re-asking"
       },
       {
         "opportunity": "Proactively recommend local experiences",
-        "aiDecision": "Hold",
+        "aiDecision": "Stay Silent",
+        "category": "stay-silent",
         "why": "No signal he wants curation; unsolicited suggestions may feel like surveillance"
       },
       {
         "opportunity": "Follow up on app order satisfaction",
-        "aiDecision": "Do not follow up",
+        "aiDecision": "Stay Silent",
+        "category": "stay-silent",
         "why": "He will reach out if something is wrong; checking in may feel like monitoring"
       }
     ],
