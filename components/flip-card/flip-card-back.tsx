@@ -40,11 +40,11 @@ const properties = [
 ];
 
 function JourneyMap() {
-  const stops = properties.map((p) => ({ x: p.x, y: p.y }));
-
-  const pathD = stops
-    .map((s, i) => `${i === 0 ? "M" : "L"} ${s.x} ${s.y}`)
-    .join(" ");
+  // Exact positions in 504x180 viewBox
+  const miramar = { x: 75, y: 130 };
+  const calistoga = { x: 90, y: 108 };
+  const sandHill = { x: 105, y: 118 };
+  const hongKong = { x: 420, y: 75 };
 
   return (
     <svg
@@ -54,133 +54,111 @@ function JourneyMap() {
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Journey map showing 4 Rosewood properties visited"
     >
-      {/* Simplified world continents outline */}
-      {/* North America */}
+      {/* Cream background */}
+      <rect width="504" height="180" fill="#F5EDD6" rx="2" />
+
+      {/* Soft continent silhouettes */}
+      {/* North America — organic blob, left third */}
       <path
-        d="M40 35 Q55 20 90 25 Q110 28 115 40 Q120 55 105 70 Q95 80 80 90 Q70 95 55 85 Q40 75 35 60 Q30 45 40 35Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
+        d="M30 55 Q50 25 95 20 Q140 18 160 35 Q175 50 165 75 Q155 95 135 115 Q115 135 90 145 Q60 150 40 130 Q20 110 25 85 Q28 68 30 55Z"
+        fill="#EDE0C4"
       />
-      {/* South America */}
+      {/* Asia — organic blob, right third */}
       <path
-        d="M95 100 Q100 95 110 100 Q115 110 118 130 Q115 150 105 160 Q95 165 90 155 Q85 140 88 120 Q90 110 95 100Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
-      />
-      {/* Europe */}
-      <path
-        d="M220 30 Q235 22 255 25 Q270 28 275 38 Q278 48 268 52 Q258 55 245 50 Q235 48 225 42 Q218 38 220 30Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
-      />
-      {/* Africa */}
-      <path
-        d="M235 60 Q250 55 265 62 Q275 70 278 90 Q275 115 265 130 Q255 140 245 135 Q235 125 232 105 Q230 85 232 70 Q233 65 235 60Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
-      />
-      {/* Asia */}
-      <path
-        d="M290 25 Q320 18 360 22 Q400 28 430 35 Q450 42 440 55 Q425 65 400 60 Q380 58 360 55 Q340 52 320 48 Q300 44 290 38 Q285 32 290 25Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
-      />
-      {/* Southeast Asia & Oceania */}
-      <path
-        d="M380 70 Q400 65 420 72 Q435 78 430 88 Q420 95 400 90 Q385 85 380 78 Q378 74 380 70Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
-      />
-      <path
-        d="M390 120 Q410 112 435 118 Q450 125 445 140 Q435 150 415 148 Q395 145 390 135 Q387 128 390 120Z"
-        fill="none"
-        stroke="#E8D9B0"
-        strokeWidth="0.8"
-        opacity="0.5"
+        d="M340 30 Q375 18 420 22 Q465 28 480 50 Q488 68 475 88 Q458 108 430 110 Q400 112 375 100 Q350 88 340 65 Q335 45 340 30Z"
+        fill="#EDE0C4"
       />
 
-      {/* Journey line */}
+      {/* Journey line — bezier arc across the ocean like a flight path */}
+      {/* Hong Kong → Miramar Beach (first leg, arriving in California) */}
       <path
-        d={pathD}
+        d={`M ${hongKong.x} ${hongKong.y} C 330 20, 200 15, ${miramar.x} ${miramar.y}`}
         stroke="#B8963E"
-        strokeWidth="1.2"
-        strokeDasharray="4 3"
+        strokeWidth="1.5"
+        strokeDasharray="5 3"
+        opacity="0.7"
+      />
+      {/* Miramar Beach → Calistoga (short California hop) */}
+      <path
+        d={`M ${miramar.x} ${miramar.y} L ${calistoga.x} ${calistoga.y}`}
+        stroke="#B8963E"
+        strokeWidth="1.5"
+        strokeDasharray="5 3"
+        opacity="0.7"
+      />
+      {/* Calistoga → Sand Hill (short California hop) */}
+      <path
+        d={`M ${calistoga.x} ${calistoga.y} L ${sandHill.x} ${sandHill.y}`}
+        stroke="#B8963E"
+        strokeWidth="1.5"
+        strokeDasharray="5 3"
         opacity="0.7"
       />
 
-      {/* Stops */}
-      {properties.map((p, i) => {
-        const cx = stops[i].x;
-        const cy = stops[i].y;
-        const labelName = p.name.replace("Rosewood ", "");
+      {/* Hong Kong — completed, dark dot */}
+      <circle cx={hongKong.x} cy={hongKong.y} r="5" fill="#1C1917" />
+      <text
+        x={hongKong.x}
+        y={hongKong.y + 19}
+        textAnchor="middle"
+        fill="#5C5048"
+        fontSize="8"
+        fontFamily="var(--font-sans)"
+      >
+        Hong Kong
+      </text>
 
-        // Offset labels for the tightly-clustered California properties
-        let labelX = cx;
-        let labelY = cy + 14;
-        let labelAnchor: "middle" | "start" | "end" = "middle";
+      {/* Miramar Beach — completed, dark dot */}
+      <circle cx={miramar.x} cy={miramar.y} r="5" fill="#1C1917" />
+      <text
+        x={miramar.x}
+        y={miramar.y + 18}
+        textAnchor="middle"
+        fill="#7A5C1E"
+        fontSize="8"
+        fontFamily="var(--font-sans)"
+      >
+        Miramar
+      </text>
 
-        if (p.name === "Rosewood Miramar Beach") {
-          labelX = cx - 6;
-          labelY = cy + 14;
-          labelAnchor = "end";
-        } else if (p.name === "Rosewood Calistoga") {
-          labelX = cx - 6;
-          labelY = cy - 8;
-          labelAnchor = "end";
-        } else if (p.name === "Rosewood Sand Hill") {
-          labelX = cx + 6;
-          labelY = cy + 4;
-          labelAnchor = "start";
-        } else if (p.name === "Rosewood Hong Kong") {
-          labelY = cy + 14;
-        }
+      {/* Calistoga — completed, dark dot */}
+      <circle cx={calistoga.x} cy={calistoga.y} r="5" fill="#1C1917" />
+      <text
+        x={calistoga.x}
+        y={calistoga.y - 12}
+        textAnchor="middle"
+        fill="#7A5C1E"
+        fontSize="8"
+        fontFamily="var(--font-sans)"
+      >
+        Calistoga
+      </text>
 
-        return (
-          <g key={p.name}>
-            {p.active ? (
-              <>
-                <circle cx={cx} cy={cy} r="8" fill="#B8963E" opacity="0.15" />
-                <circle cx={cx} cy={cy} r="5" fill="#B8963E" opacity="0.3" />
-                <circle cx={cx} cy={cy} r="3" fill="#B8963E" />
-              </>
-            ) : (
-              <circle cx={cx} cy={cy} r="3" fill="#1C1917" />
-            )}
-            <text
-              x={labelX}
-              y={labelY}
-              textAnchor={labelAnchor}
-              className="text-[7px] fill-muted"
-              fontFamily="var(--font-sans)"
-            >
-              {labelName}
-            </text>
-            {p.active && (
-              <text
-                x={cx + 6}
-                y={cy - 8}
-                textAnchor="start"
-                className="text-[7px] fill-gold"
-                fontFamily="var(--font-sans)"
-              >
-                You are here
-              </text>
-            )}
-          </g>
-        );
-      })}
+      {/* Sand Hill — current, gold with ring */}
+      <circle cx={sandHill.x} cy={sandHill.y} r="11" stroke="#B8963E" strokeWidth="1" fill="none" />
+      <circle cx={sandHill.x} cy={sandHill.y} r="7" fill="#B8963E" />
+      <text
+        x={sandHill.x}
+        y={sandHill.y + 24}
+        textAnchor="middle"
+        fill="#B8963E"
+        fontSize="8"
+        fontFamily="var(--font-sans)"
+        fontWeight="500"
+      >
+        Sand Hill
+      </text>
+      <text
+        x={sandHill.x + 16}
+        y={sandHill.y - 16}
+        textAnchor="start"
+        fill="#B8963E"
+        fontSize="7"
+        fontFamily="var(--font-sans)"
+        fontStyle="italic"
+      >
+        You are here
+      </text>
     </svg>
   );
 }
