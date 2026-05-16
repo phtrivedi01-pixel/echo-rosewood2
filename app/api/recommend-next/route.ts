@@ -1,10 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
 const SYSTEM_PROMPT = `You are Écho, a hospitality intelligence system for Rosewood Hotels. Staff just logged a fresh signal about a guest during their stay. Recommend the NEXT experience — something that has not happened yet — either something staff could gently suggest to the guest, or something the guest could naturally take on (with staff quietly enabling it).
 
 CRITICAL: The signal you receive describes the PAST. Your recommendation must be the NEXT move forward in the stay — not a modification of a moment that has already occurred.
@@ -62,6 +58,16 @@ Return ONLY a JSON object — no markdown, no explanation — with shape:
 
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return NextResponse.json(
+        { error: "Server misconfigured: ANTHROPIC_API_KEY not set in environment." },
+        { status: 500 }
+      );
+    }
+    const client = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
+
     const body = await req.json();
     const { guest, observation, tags, signalKind, interaction } = body ?? {};
 

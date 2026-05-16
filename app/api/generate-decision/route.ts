@@ -1,14 +1,20 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
 const SYSTEM_PROMPT = `You are Écho, a hospitality intelligence system for Rosewood Hotels. Your role is to help staff deliver thoughtful, not creepy personalization. For each guest interaction opportunity, you must decide: Act Invisibly (do it without mentioning it), Offer Gently (suggest it as optional), Ask Permission (sensitive — check first), or Stay Silent (too intrusive or insufficient data). Always err on the side of restraint. Luxury guests do not want to feel surveilled. The highest score goes to the guest who never once felt the AI — but always felt seen. Return a JSON array of decision table rows.`;
 
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return NextResponse.json(
+        { error: "Server misconfigured: ANTHROPIC_API_KEY not set in environment." },
+        { status: 500 }
+      );
+    }
+    const client = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
+
     const body = await req.json();
 
     if (!body || typeof body !== "object") {
