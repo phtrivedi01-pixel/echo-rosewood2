@@ -40,6 +40,13 @@ Tag with Dining · Spa · Family · Room · Activity · Emotional. Submit, and �
 - Wellness/relaxation framing on misses — pivot to bath rituals, foot soaks, atmospheric shifts, sleep aids
 - Low-data branch — for private first-timers like Daniel, default toward generic, app-mediated, low-presence gestures and lean on `stay-silent` more often
 
+## Design tenets
+
+- Restraint over abundance. The highest-quality recommendation is the one the guest experiences as serendipity, not service.
+- Status drives layout. The page's shape — what's hidden, what's open, what's at the top — should match where the guest is in their stay.
+- Word tiers, not scores. "Echo Profile · Deeply Known" instead of "Echo Score · 94/100."
+- For a guest who hasn't shared themselves, invisibility is the highest care.
+
 ## Tech stack
 
 - **Next.js 15** App Router with Turbopack
@@ -80,10 +87,3 @@ data/
 public/audio/                    Pre-generated ElevenLabs audio
 scripts/generate-audio.ts        Regenerate audio (requires ELEVENLABS_API_KEY)
 ```
-
-## Design tenets
-
-- Restraint over abundance. The highest-quality recommendation is the one the guest experiences as serendipity, not service.
-- Status drives layout. The page's shape — what's hidden, what's open, what's at the top — should match where the guest is in their stay.
-- Word tiers, not scores. "Echo Profile · Deeply Known" instead of "Echo Score · 94/100."
-- For a guest who hasn't shared themselves, invisibility is the highest care.
