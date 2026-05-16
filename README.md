@@ -2,9 +2,11 @@
 
 A staff-facing intelligence dashboard for Rosewood Hotels. Écho gives front-desk and concierge teams a calm, considered read on each guest — not a marketing prompt, but a whispered brief in their ear. Built as a hackathon prototype on the question: how do you do AI-driven personalization without making the guest feel surveilled?
 
-**Live demo:** [echo-rosewood2.vercel.app](https://echo-rosewood2.vercel.app)
-**Walkthrough video:** [loom.com/share/0d36010154ed4db7a9cc5b0ac400c53b](https://www.loom.com/share/0d36010154ed4db7a9cc5b0ac400c53b)
-**GitHub repo:** [github.com/phtrivedi01-pixel/echo-rosewood2](https://github.com/phtrivedi01-pixel/echo-rosewood2)
+**Live demo:** <a href="https://echo-rosewood2.vercel.app" target="_blank" rel="noopener noreferrer">echo-rosewood2.vercel.app</a>
+
+**Walkthrough video:** <a href="https://www.loom.com/share/0d36010154ed4db7a9cc5b0ac400c53b" target="_blank" rel="noopener noreferrer">loom.com/share/0d36010154ed4db7a9cc5b0ac400c53b</a>
+
+**GitHub repo:** <a href="https://github.com/phtrivedi01-pixel/echo-rosewood2" target="_blank" rel="noopener noreferrer">github.com/phtrivedi01-pixel/echo-rosewood2</a>
 
 The demo follows two contrasting guests at Rosewood Sand Hill on May 16, 2026:
 - **Isabella Reyes** — long-known returning guest, four prior stays, traveling solo this time
