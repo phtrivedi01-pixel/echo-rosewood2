@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GuestCard } from "@/components/guest-card";
 
 export default function Home() {
@@ -38,6 +39,16 @@ export default function Home() {
               note="We're still learning Daniel."
             />
           </div>
+        </div>
+        {/* Afterglow Preview */}
+        <div className="mt-10 text-center">
+          <Link
+            href="/afterglow"
+            className="inline-flex items-center gap-1 text-sm text-gold hover:text-gold-light transition-colors"
+          >
+            View Afterglow Memory Card
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </main>
 
