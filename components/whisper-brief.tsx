@@ -76,7 +76,7 @@ function AudioPlayer({
           </span>
         </span>
         <span className="flex flex-col items-start gap-0.5">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450]">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680]">
             {playing ? "Now Playing" : "Play"}
           </span>
           <span className="text-sm text-[#FAF8F5] font-light">{label}</span>
@@ -97,7 +97,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
       <div className="px-8 pt-8">
         <Link
           href="/"
-          className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] hover:text-[#B8963E] transition-colors"
+          className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] hover:text-[#B8963E] transition-colors"
         >
           ← Dashboard
         </Link>
@@ -110,7 +110,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
             <h1 className="font-serif text-[48px] font-light text-[#1C1917] leading-none">
               {guest.name}
             </h1>
-            <p className="mt-3 text-sm text-[#5a5450]">
+            <p className="mt-3 text-sm text-[#8a8680]">
               {guest.occupation} · {guest.age}
             </p>
             <p className="mt-6 font-serif text-base italic text-[#1C1917] leading-relaxed max-w-xl opacity-70">
@@ -119,7 +119,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
           </div>
           <div className="flex flex-col items-center gap-1 shrink-0 pt-2">
             <EchoScore score={guest.echoScore} variant={isHighScore ? "gold" : "amber"} />
-            <span className="text-[10px] uppercase tracking-widest text-[#5a5450]">Echo Score</span>
+            <span className="text-[10px] uppercase tracking-widest text-[#8a8680]">Echo Score</span>
           </div>
         </div>
         <div className="mt-10 h-px bg-[#B8963E] opacity-30" />
@@ -129,7 +129,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
 
         {/* Stay History */}
         <section>
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] mb-6">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] mb-6">
             Stay History
           </p>
           <div className="relative flex items-start gap-0">
@@ -143,7 +143,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
                 <p className="mt-3 text-xs text-[#1C1917] text-center leading-snug px-1">
                   {stay.property}
                 </p>
-                <p className="mt-1 text-[10px] text-[#5a5450] text-center">{stay.year}</p>
+                <p className="mt-1 text-[10px] text-[#8a8680] text-center">{stay.year}</p>
                 {stay.companion && (
                   <p className="mt-0.5 text-[10px] text-[#B8963E] text-center italic">
                     w/ {stay.companion}
@@ -156,7 +156,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
 
         {/* Life Signals */}
         <section>
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] mb-4">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] mb-4">
             Life Signals
           </p>
           <div className="flex flex-wrap gap-2">
@@ -173,7 +173,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
 
         {/* Whisper Brief */}
         <section>
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] mb-4">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] mb-4">
             Whisper Brief
           </p>
           <div className="border-l-2 border-[#B8963E] pl-6 py-1">
@@ -186,15 +186,15 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
 
         {/* Decision Table */}
         <section>
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] mb-4">
+          <p className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] mb-4">
             Echo Decisions
           </p>
           <div className="border border-[#e8e4dc]">
             {/* Table header */}
             <div className="grid grid-cols-[2fr_1fr_2fr] bg-[#f5f1ea] px-6 py-3 border-b border-[#e8e4dc]">
-              <span className="text-[9px] uppercase tracking-[0.2em] text-[#5a5450]">Opportunity</span>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-[#5a5450]">Decision</span>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-[#5a5450]">Why</span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-[#8a8680]">Opportunity</span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-[#8a8680]">Decision</span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-[#8a8680]">Why</span>
             </div>
             {/* Rows */}
             {guest.decisionTable.map((row, i) => (
@@ -204,7 +204,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
               >
                 <p className="text-sm text-[#1C1917]">{row.opportunity}</p>
                 <DecisionBadge category={row.category} />
-                <p className="text-xs text-[#5a5450] leading-relaxed italic">{row.why}</p>
+                <p className="text-xs text-[#8a8680] leading-relaxed italic">{row.why}</p>
               </div>
             ))}
           </div>
@@ -213,7 +213,7 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
         {/* Afterglow — Isabella only */}
         {guest.afterglowText && (
           <section className="border border-[#e8e4dc] bg-[#FFFDF8] p-8">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-[#5a5450] mb-4">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-[#8a8680] mb-4">
               Afterglow · Post-Stay Memory
             </p>
             <p className="font-serif text-lg font-light text-[#1C1917] leading-relaxed italic">
