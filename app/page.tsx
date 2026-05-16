@@ -1,7 +1,9 @@
 import Link from "next/link";
 import guests from "@/data/guests.json";
-import { EchoScore } from "@/components/echo-score";
+import { EchoProfile } from "@/components/echo-profile";
 import { cn } from "@/lib/utils";
+
+export const dynamic = "force-dynamic";
 
 const statusLabel: Record<string, string> = {
   "arriving-today": "Arriving Today",
@@ -13,7 +15,8 @@ const statusStyle: Record<string, string> = {
   "checked-in": "bg-[#F0EDEA] text-[#6a6660]",
 };
 
-export default function Home() {
+export default async function Home() {
+  await new Promise((r) => setTimeout(r, 500));
   const [isabella, daniel] = guests;
 
   return (
@@ -77,12 +80,11 @@ function GuestCard({
     .map((n) => n[0])
     .join("");
 
-  const isHighScore = guest.echoScore >= 70;
-
   return (
+    <Link href={`/guests/${guest.id}`} className="group block active:opacity-95">
     <article
       className={cn(
-        "flex flex-col p-8 border border-[#e8e4dc] min-h-[340px]",
+        "flex flex-col p-8 border border-[#e8e4dc] min-h-[340px] transition-colors group-hover:border-[#B8963E]",
         warm ? "bg-[#FFFDF8]" : "bg-white"
       )}
     >
@@ -120,27 +122,17 @@ function GuestCard({
           )}
         </div>
 
-        <div className="flex flex-col items-center gap-1 shrink-0">
-          <EchoScore
-            score={guest.echoScore}
-            variant={isHighScore ? "gold" : "amber"}
-          />
-          <span className="text-[10px] uppercase tracking-widest text-[#8a8680]">
-            Echo Score
-          </span>
-        </div>
+        <EchoProfile score={guest.echoScore} />
       </div>
 
-      {/* Footer: View Brief */}
+      {/* Footer: View Brief affordance */}
       <div className="mt-6 pt-6 border-t border-[#e8e4dc]">
-        <Link
-          href={`/guests/${guest.id}`}
-          className="inline-flex items-center gap-1.5 text-sm text-[#B8963E] hover:text-[#C9A84F] transition-colors"
-        >
+        <span className="inline-flex items-center gap-1.5 text-sm text-[#B8963E] group-hover:text-[#C9A84F] transition-colors">
           View Whisper Brief
-          <span aria-hidden="true">→</span>
-        </Link>
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+        </span>
       </div>
     </article>
+    </Link>
   );
 }
