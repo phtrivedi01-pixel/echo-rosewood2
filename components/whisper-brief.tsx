@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { EchoProfile } from "./echo-profile";
 import { StaffSignalPanel } from "./staff-signal-panel";
+import { FlipCard } from "./flip-card";
 
 type StayEntry = { property: string; year: number; companion: string | null };
 type DecisionRow = {
@@ -448,17 +449,15 @@ export function WhisperBrief({ guest }: { guest: Guest }) {
               label="Afterglow · Post-Stay Memory"
               defaultOpen={defaults.afterglow}
             >
-              <div className="border border-[#e8e4dc] bg-[#FFFDF8] p-8">
-                <p className="font-serif text-lg font-light text-[#1C1917] leading-relaxed italic">
-                  "{guest.afterglowText}"
-                </p>
-                {guest.id === "guest-001" && (
-                  <AudioPlayer
-                    src="/audio/isabella-afterglow.mp3"
-                    label="Afterglow Message"
-                  />
-                )}
-              </div>
+              {guest.id === "guest-001" ? (
+                <FlipCard />
+              ) : (
+                <div className="border border-[#e8e4dc] bg-[#FFFDF8] p-8">
+                  <p className="font-serif text-lg font-light text-[#1C1917] leading-relaxed italic">
+                    "{guest.afterglowText}"
+                  </p>
+                </div>
+              )}
             </Collapsible>
           </div>
         )}
