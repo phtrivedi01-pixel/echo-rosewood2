@@ -45,7 +45,7 @@ export default async function Home() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* Isabella */}
-          <GuestCard guest={isabella} warm />
+          <GuestCard guest={isabella} warm note="Returning guest. 4th stay." />
 
           {/* Daniel */}
           <GuestCard guest={daniel} note="We're still learning Daniel." />
