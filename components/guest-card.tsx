@@ -9,6 +9,7 @@ interface GuestCardProps {
   monogram: string;
   status: "arriving" | "active";
   note?: string;
+  warmBackground?: boolean;
 }
 
 export function GuestCard({
@@ -19,23 +20,20 @@ export function GuestCard({
   monogram,
   status,
   note,
+  warmBackground = false,
 }: GuestCardProps) {
   const isArriving = status === "arriving";
   const scoreVariant = echoScore >= 70 ? "gold" : "amber";
 
   return (
-    <article className="flex flex-col bg-card p-8 border border-border min-h-[320px]">
+    <article className={cn(
+      "flex flex-col p-8 border border-border min-h-[320px]",
+      warmBackground ? "bg-card-warm" : "bg-card"
+    )}>
       {/* Header row: monogram + status badge */}
       <div className="flex items-start justify-between mb-6">
         {/* Monogram */}
-        <div
-          className={cn(
-            "flex items-center justify-center w-14 h-14 rounded-full text-sm font-medium tracking-wide",
-            isArriving
-              ? "bg-gold/10 text-gold border border-gold/30"
-              : "bg-muted/10 text-muted border border-muted/30"
-          )}
-        >
+        <div className="flex items-center justify-center w-14 h-14 rounded-full text-sm font-medium tracking-wide bg-gold-bg text-gold-dark">
           {monogram}
         </div>
 
@@ -44,8 +42,8 @@ export function GuestCard({
           className={cn(
             "px-3 py-1 text-xs uppercase tracking-widest font-medium",
             isArriving
-              ? "bg-gold/10 text-gold"
-              : "bg-muted/10 text-muted"
+              ? "bg-gold-bg text-gold-dark"
+              : "bg-badge-grey text-badge-grey-text"
           )}
         >
           {isArriving ? "Arriving Today" : "Active Guest"}

@@ -11,6 +11,8 @@ export default function Home() {
         <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-muted">
           Rosewood Sand Hill · Staff Intelligence Platform
         </p>
+        {/* Gold divider line */}
+        <div className="mt-10 h-px w-full bg-gold" />
       </header>
 
       {/* Main content */}
@@ -24,6 +26,7 @@ export default function Home() {
               echoScore={94}
               monogram="IR"
               status="arriving"
+              warmBackground
             />
             <GuestCard
               name="Daniel Park"
